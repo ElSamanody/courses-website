@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap v 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/pricing.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Aos -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
+    <title>pricing</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="alert my-3  d-flex align-items-center justify-content-center gap-4">
+            <p class="m-0 text-center">Free Courses 🌟 Sale Ends Soon, Get It Now</p>
+            <div class="arrow-icon">
+                <i class="fa-solid fa-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+    <header id="main-navbar" class="py-2 py-lg-3">
+        <nav class="navbar navbar-expand-lg py-0 d-flex align-items-center">
+            <div class="container-fluid container-custom d-flex align-items-center">
+                <div class="logo">
+                    <img src="image/logo/Logo.png" alt="logo image">
+                </div>
+                <div class="d-flex gap-2 ms-auto order-lg-2">
+                    <a href="./sign-up.html">
+                        <button class="btn">Sign up</button>
+                    </a>
+                    <a href="./login.html">
+                        <button class="btn btn-warning btn-warning-custom">Login</button>
+                    </a>
+                    <a href="#">
+                        <button id="logoutBtn" class="btn btn-warning btn-warning-custom " style="display: none;">
+                            Log out</button>
+                    </a>
+                </div>
+                <button class="navbar-toggler ms-2 order-lg-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <div class="collapse navbar-collapse mt-2 order-lg-1" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-2">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="courses.html">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pricing.html">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <div class="start-message ">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center" data-aos="fade-down"
+                        data-aos-duration="1000">
+                        <h1 class="fw-semibold">
+                            Our Pricings
+                        </h1>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6" data-aos="fade-up" data-aos-duration="1000">
+                        <h5>
+                            Welcome to SkillBridge's Pricing Plan page, where we offer two comprehensive options to
+                            cater to your needs: Free and Pro. We believe in providing flexible and affordable pricing
+                            options for our services. Whether you're an individual looking to enhance your skills or a
+                            business seeking professional development solutions, we have a plan that suits you. Explore
+                            our pricing options below and choose the one that best fits your requirements.
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="price text-center">
+                <div class="buttons p-3 d-inline-flex  rounded-3 ">
+                    <button class="btn btn-warning btn-warning-custom py-3 px-4">Monthly</button>
+                    <button class="btn  py-3 px-4">Monthly</button>
+                </div>
+            </div>
+            <div class="row w-100 cards">
+                <div class="col-md-6 col-lg-6 d-flex justify-content-center">
+                    <div class="plan py-4 px-4 rounded-3 d-flex flex-column align-items-center justify-content-between">
+                        <div class="plan-header text-center w-100 gap-3 d-flex flex-column"">
+                                <h4 class=" plan-title p-3 rounded-2 fs-5 text-center m-0">Free Plan</h4>
+                            <h2 class="plan-price fw-bold mb-3">$0 <span class="fw-normal">/month</span></h2>
+                        </div>
+                        <div
+                            class="plan-features flex-grow-1 d-flex flex-column justify-content-center align-items-center p-4 pb-0 rounded-3 rounded-bottom-0 border border-1 border-bottom-0">
+                            <h5 class="d-flex justify-content-center m-3">Available Features</h5>
+                            <ul class="list-unstyled d-flex flex-column gap-2">
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Access to basic courses</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Ad-supported platform.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>No certification upon completion.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Basic community support.</span>
+                                </li>
+                                <li class="d-flex align-items-center ">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Limited course materials and resources.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-xmark me-2"></i>
+                                    <span>Access to exclusive Pro Plan community forums.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-xmark me-2"></i>
+                                    <span>Early access to new courses and updates</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- زرار أسفل الكارت -->
+                        <div class="plan-footer mt-auto  w-100 ">
+                            <button class="btn btn-warning btn-warning-custom w-100 rounded-top-0">Get
+                                Started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 d-flex justify-content-center">
+                    <div class="plan py-4 px-4 rounded-3 d-flex flex-column align-items-center justify-content-between">
+                        <div class="plan-header text-center w-100 gap-3 d-flex flex-column"">
+                                <h4 class=" plan-title p-3 rounded-2 fs-5 text-center m-0">Free Plan</h4>
+                            <h2 class="plan-price fw-bold mb-3">$0 <span class="fw-normal">/month</span></h2>
+                        </div>
+                        <div
+                            class="plan-features flex-grow-1 d-flex flex-column justify-content-center align-items-center p-4 pb-0 rounded-3 rounded-bottom-0 border border-1 border-bottom-0">
+                            <h5 class="d-flex justify-content-center m-3">Available Features</h5>
+                            <ul class="list-unstyled d-flex flex-column gap-2">
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Priority support from instructors.
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Course completion certificates.
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Ad-free experience.
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center ">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Access to exclusive Pro Plan community forums.
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Ad-free experience.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>Access to exclusive Pro Plan community forums.</span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <i class="fa-solid fa-check me-2"></i>
+                                    <span>EEarly access to new courses and updates.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- زرار أسفل الكارت -->
+                        <div class="plan-footer mt-auto  w-100 ">
+                            <button class="btn btn-warning btn-warning-custom w-100 rounded-top-0">Get
+                                Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="asked">
+        <div class="container rounded-3">
+            <div class="row align-items-start g-4">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="title">
+                        <h2 class="fs-1 fw-bold my-3 b-1">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="fs-5 b-1">
+                            Still you have any questions? Contact our Team via
+                            <a href="#">support@skillbridge.com</a>
+                        </p>
+                    </div>
+                    <button class="btn btn-light btn-light-custom p-3">See All FAQ’s</button>
+                </div>
+                <div class="col-sm-12 col-lg-6">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed custom-accordion-btn" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#q1">
+                                    Can I enroll in multiple courses at once?
+                                </button>
+                            </h2>
+                            <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body reqwest">
+                                    Absolutely! You can enroll in multiple courses simultaneously and access them at
+                                    your convenience.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed custom-accordion-btn" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#q2">
+                                    What kind of support can I expect from instructors?
+                                </button>
+                            </h2>
+                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body reqwest">
+                                    You'll have access to forums, live Q&A sessions, and direct messaging.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed custom-accordion-btn" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#q3">
+                                    Are the courses self-paced or do they have specific start and end dates?
+                                </button>
+                            </h2>
+                            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body reqwest">
+                                    Our courses are mostly self-paced, allowing you to learn at your own convenience.
+                                    However, some programs may have specific start and end dates for live sessions or
+                                    group projects.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed custom-accordion-btn" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#q4">
+                                    Are there any prerequisites for the courses?
+                                </button>
+                            </h2>
+                            <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body reqwest">
+                                    Prerequisites vary depending on the course. Many of our courses are
+                                    beginner-friendly with no prior knowledge required, while advanced courses may need
+                                    some background in the subject.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed custom-accordion-btn" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#q5">
+                                    Can I download the course materials for offline access?
+                                </button>
+                            </h2>
+                            <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, you can download certain course materials, such as PDFs or presentations, for
+                                    offline access. However, video content is typically available for streaming only.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row justify-content-between g-3">
+                <div class="col-sm-12 col-md-12 col-lg-3">
+                    <div class="contact d-flex flex-column gap-3">
+                        <div class="logo">
+                            <img src="image/logo/Logo.png" alt="logo">
+                        </div>
+                        <ul class="list-cntact list-unstyled d-flex flex-column gap-2">
+                            <li>
+                                <i class="fa-solid fa-envelope me-2 fs"></i>
+                                hello@skillbridge.com
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-phone me-2 fs"></i>
+                                +91 91813 23 2309
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-location-dot me-2 fs"></i>
+                                Somewhere in the World
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 d-flex flex-column align-items-start align-items-lg-end">
+                    <div class="links">
+                        <h5 class="fw-bold">Home</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2">
+                            <li><a href="./index.html#Benefits">Benefits</a></li>
+                            <li><a href="./index.html#Our-Courses">Our Courses</a></li>
+                            <li><a href="./index.html#Our-Testimonials">Our Testimonials</a></li>
+                            <li><a href="./index.html#Our-FAQ">Our FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 d-flex flex-column align-items-start align-items-lg-end">
+                    <div class="links">
+                        <h5 class="fw-bold">About Us</h5>
+                        <ul class="list-unstyled d-flex flex-column gap-2">
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Achievements</a></li>
+                            <li><a href="#">Our Goals</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-3 d-flex flex-column align-items-start align-items-lg-end ">
+                    <div class="social-profile d-flex flex-column gap-3">
+                        <h5 class="fw-bold">Social Profiles</h5>
+                        <ul class="list-unstyled d-flex gap-2">
+                            <li>
+                                <a href="#" class="p-3 rounded-3">
+                                    <i class="fa-brands fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="p-3 rounded-3">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="p-3 rounded-3">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Copyright d-flex justify-content-center">
+            <p class="m-0 p-3  fw-normal">
+                Skillbridge &copy; 2023. All Rights Reserved
+            </p>
+        </div>
+    </footer>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script src="./js/pricing.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap v 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/login.css">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Aos -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+
+    <!-- Notyf alert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <title>login</title>
+</head>
+
+<body>
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-9 col-lg-6 d-flex ">
+                <form id="loginForm" name="loginForm" class="rounded-3 p-4 w-100 my-3">
+                    <h2 class="fw-semibold text-center">Login</h2>
+                    <p class="text-center mb-3 mb-lg-4">Welcome back! Please log in to access your account.</p>
+
+                    <label for="email" class="fw-medium">Email</label>
+                    <input type="email" id="email" placeholder="Enter your Email" class="form-control mt-2 mb-1 p-3">
+                    <small id="emailError" class="text-danger mb-3" style="display:none;"></small>
+
+                    <label for="password" class="fw-medium">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password"
+                        class="form-control mt-2 mb-1 p-3">
+                    <small id="passwordError" class="text-danger mb-3" style="display:none;"></small>
+
+                    <small id="loginError" class="text-danger mb-3" style="display:none;"></small>
+                    <button type="submit"
+                        class="btn btn-warning btn-warning-custom w-100 p-3 mt-3 mb-3 fw-medium">Login</button>
+
+                    <div class="or position-relative">
+                        <span class="d-flex justify-content-center">OR</span>
+                    </div>
+                    <button
+                        class="btn btn-secondary btn-secondary-custom d-flex gap-3 align-items-center justify-content-center p-3 my-3 w-100">
+                        <div class="logo">
+                            <img src="./icons/google.png" alt="googel logo">
+                        </div>
+                        <h5 class="m-0 fw-semibold">Login with Google</h5>
+                    </button>
+                    <h5 class="text-center">
+                        Don’t have an account?
+                        <span> <a href="./sign-up.html" class="fw-semibold">Sign Up</a>
+                        </span>
+                    </h5>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- Notyf alert -->
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+
+    <script src="./js/login.js"></script>
+
+</body>
+
+</html>

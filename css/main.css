@@ -1,0 +1,810 @@
+:root {
+    --color-orange: rgb(255, 149, 0);
+    --color-text-primary: #262626;
+    --color-text-secondary: #59595A;
+    --margin-bottom-section: 100px;
+}
+
+.btn-warning-custom,
+.btn-warning-custom:focus,
+.btn-warning-custom:active,
+.btn-warning-custom:hover,
+.btn-warning-custom:focus:active {
+    background-color: var(--color-orange) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+.btn-secondary-custom,
+.btn-secondary-custom:focus,
+.btn-secondary-custom:active,
+.btn-secondary-custom:hover,
+.btn-secondary-custom:focus:active {
+    background-color: #F7F7F8 !important;
+    color: var(--color-text-primary) !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+.btn-light-custom,
+.btn-light-custom:focus,
+.btn-light-custom:active,
+.btn-light-custom:hover,
+.btn-light-custom:focus:active {
+    background-color: #FCFCFD !important;
+    color: var(--color-text-primary) !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+
+
+body {
+    background-color: #F7F7F8;
+    font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.alert {
+    background-color: var(--color-orange);
+    position: relative;
+    z-index: 100;
+}
+
+.alert p,
+.alert i {
+    color: #fff;
+    font-size: 18px;
+}
+
+#main-navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+header {
+    border-bottom: 1px solid #F1F1F3;
+}
+
+header img,
+footer img {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+nav li a {
+    color: #262626 !important;
+    padding: .75rem 1rem !important;
+    border-radius: 10px;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+.nav-link.active {
+    background-color: #2626261e;
+    font-weight: bold;
+}
+
+
+.container-custom {
+    margin-left: 5%;
+    margin-right: 5%;
+    gap: 50px;
+}
+
+.container-hero-custom {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    gap: 60px;
+}
+
+.start-message .title {
+    background-color: #fff;
+    border-radius: 11px;
+}
+
+.start-message .image-message {
+    height: 70px;
+}
+
+.start-message .image-message img {
+    height: 100%;
+    width: 100%;
+}
+
+.start-message h2 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.start-message h2 span {
+    color: var(--color-orange);
+}
+
+.start-message h3 {
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--color-text-primary);
+}
+
+/*  */
+
+.partners {
+    background-color: #FCFCFD;
+}
+
+.video-learn {
+    width: 100%;
+}
+
+.video-learn img {
+    width: 100%;
+    height: auto;
+}
+
+
+/*section Benefits  */
+
+.Benefits .title-section h3,
+.courses .title h3,
+.testimonials .title h3,
+.Price .title h3,
+.asked .title h2 {
+    color: var(--color-text-primary) !important;
+}
+
+.Benefits .title-section p,
+.courses .title p,
+.testimonials .title p,
+.Price .title p,
+.asked .title p {
+    color: var(--color-text-secondary) !important;
+}
+
+
+
+.card {
+    padding: 9rem 2.5rem 3.15rem 2.5rem;
+    background-color: #fff;
+    border-radius: 12px;
+    position: relative;
+}
+
+.card span.number {
+    position: absolute;
+    top: 1rem;
+    right: 3.15rem;
+    font-size: 80px;
+    font-weight: bold;
+    color: var(--color-text-primary);
+}
+
+.Benefits,
+.courses,
+.testimonials,
+.Price,
+.asked {
+    margin-bottom: var(--margin-bottom-section);
+}
+
+
+
+.Benefits .cards-Benefits .card h3 {
+    color: #333333 !important;
+}
+
+.Benefits .cards-Benefits .card p {
+    color: var(--color-text-secondary);
+    font-size: 18px;
+}
+
+.Benefits .cards-Benefits .card i {
+    color: var(--color-orange);
+    transform: rotate(-45deg);
+    background-color: #FCFCFD;
+    font-size: 20px;
+    bottom: 50px;
+}
+
+
+/* courses  */
+
+.courses .cards-courses .card {
+    padding: 50px !important;
+}
+
+.courses .cards-courses .info span {
+    border: 1px solid #4c4c4d2c;
+    border-radius: 8px;
+    color: #4C4C4D;
+    font-size: 18px;
+}
+
+.courses .cards-courses .info .instructor span {
+    color: var(--color-text-primary);
+    font-size: 20px;
+
+}
+
+.courses .cards-courses .card .card-body h5 {
+    color: var(--color-text-primary);
+    font-size: 24px;
+}
+
+.courses .cards-courses .card .card-body p {
+    color: #333333;
+    font-size: 18px;
+}
+
+.courses .cards-courses .card .card-body a {
+    color: var(--color-text-primary);
+    background-color: #F7F7F8;
+}
+
+.courses .image-card {
+    overflow: hidden;
+}
+
+.courses .card .image-card img {
+    transition: transform 800ms ease,
+        filter 800ms ease;
+
+}
+
+.courses .card:hover .image-card img {
+    transform: scale(1.05);
+    filter: brightness(.8);
+}
+
+.testimonials .card-body {
+    background-color: #fff
+}
+
+.testimonials .card-footer {
+    background-color: #FCFCFD;
+}
+
+.testimonials .card-testimonials p {
+    color: #4C4C4D;
+    font-size: 18px;
+}
+
+.testimonials .card-testimonials .user {
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.buttons-price {
+    background-color: #fff;
+}
+
+.Price .plans {
+    background-color: #fff;
+    padding: 2.5vw;
+}
+
+.Price .plans .plan {
+    background-color: #FCFCFD;
+}
+
+.Price .plans .plan-header h4 {
+    background-color: #FFF9F0;
+    border: 1px solid #FFEACC;
+    color: var(--color-text-primary);
+}
+
+.Price .plans .plan-header h2 {
+    font-size: 60px;
+    color: var(--color-text-primary);
+}
+
+.Price .plans .plan-header h2 span {
+    font-size: 24px;
+    color: var(--color-text-secondary);
+}
+
+.Price .plan-features h5 {
+    color: var(--color-text-primary);
+    font-size: 20px;
+    width: 100%;
+}
+
+.Price .plan .plan-features {
+    background-color: #fff;
+}
+
+
+.Price .plan-features h2 {
+    color: var(--color-text-primary);
+    font-size: 20px;
+}
+
+.Price .plan .plan-features ul {
+    list-style: none;
+    padding: 0;
+    color: #4C4C4D;
+}
+
+.Price .plan .plan-features ul li {
+    padding: 12px;
+    font-size: 12px;
+    border-bottom: 1px solid #eee;
+    align-items: flex-start;
+
+}
+
+.Price .plan .plan-features ul li:last-child {
+    border-bottom: none;
+}
+
+.Price .plan .plan-features ul li i {
+    background-color: #FFF4E5;
+    color: var(--color-text-primary);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+}
+
+.Price .plan .body-plan .btn-warning-custom {
+    font-size: 18px;
+}
+
+.asked .container {
+    background-color: #fff;
+    padding: 50px 50px !important;
+}
+
+.asked .title h2 {
+    width: 58%;
+}
+
+.asked .title p {
+    color: #333333;
+    width: 65%;
+}
+
+.asked .btn-light-custom {
+    font-size: 18px;
+    color: var(--color-text-primary) !important;
+}
+
+.accordion-item {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accordion-item button {
+    color: var(--color-text-primary);
+    font-size: 20px;
+}
+
+.accordion-body {
+    color: #4C4C4D;
+    font-size: 18px;
+}
+
+.accordion-item+.accordion-item .accordion-button {
+    padding: 15px 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+.accordion-button.collapsed:hover {
+    background-color: #f8f9fa;
+    color: #222280;
+}
+
+footer {
+    background-color: #fff;
+    padding: 100px 0 30px;
+}
+
+footer .logo {
+    width: 50px;
+}
+
+footer .list-cntact li {
+    color: var(--color-text-primary);
+    font-size: 18px;
+
+}
+
+footer .links h5 {
+    font-size: 20px;
+    color: var(--color-text-primary);
+}
+
+footer .links li a {
+    color: #59595A;
+    font-size: 18px;
+
+}
+
+footer .social-profile li a {
+    background-color: #F7F7F8;
+}
+
+footer .Copyright {
+    color: #656567;
+}
+
+#Benefits,
+#Our-Courses,
+#Our-Testimonials,
+#Our-FAQ {
+    scroll-margin-top: 100px;
+    /* ارتفاع navbar */
+}
+
+/* mediam  */
+
+@media (max-width: 992px) {
+
+    .alert p,
+    .alert i {
+        font-size: 14px;
+    }
+
+    .navbar-toggler:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        z-index: 1000;
+    }
+
+    .navbar-nav .nav-link {
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        padding: 5px 0;
+        position: relative;
+        margin-left: 20px;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #007bff;
+    }
+
+    .navbar-nav .nav-link::after {
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        background: #007bff;
+        transition: width 0.3s;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .navbar-nav .nav-link:hover::after {
+        width: 100%
+    }
+
+    .navbar-nav {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container-hero-custom {
+        gap: 30px;
+    }
+
+    .start-message h2 {
+        font-size: 36px;
+    }
+
+    .start-message h3 {
+        font-size: 28px;
+    }
+
+    .hero-section .partners .image-partners {
+        width: 10vw;
+    }
+
+    .hero-section .partners .image-partners img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Benefits .title-section h3,
+    .courses .title h3,
+    .testimonials .title h3,
+    .Price .title h3,
+    .asked .title h2 {
+        font-size: 38px !important;
+    }
+
+    .Benefits .title-section p,
+    .courses .title p,
+    .testimonials .title p,
+    .Price .title p,
+    .asked .title p {
+        font-size: 16px !important;
+    }
+
+
+
+    .card span.number {
+        font-size: 60px;
+        position: absolute;
+        top: .5rem;
+        right: 2.15rem;
+    }
+
+    .card {
+        padding-top: 6rem;
+    }
+
+    .Benefits .cards-Benefits .card h3 {
+        font-size: 20px !important;
+    }
+
+    .Benefits .cards-Benefits .card p {
+        font-size: 16px !important;
+    }
+
+    .courses .cards-courses .card {
+        padding: 25px 20px !important;
+    }
+
+    .courses .cards-courses .card .course-details {
+        flex-direction: column !important;
+        align-items: start !important;
+    }
+
+    .courses .cards-courses .card .course-details .info {
+        width: 100% !important;
+        justify-content: unset !important;
+        gap: 1rem;
+    }
+
+    .courses .cards-courses .info span {
+        font-size: 14px;
+    }
+
+    .courses .cards-courses .card .card-body h5 {
+        font-size: 18px;
+    }
+
+    .courses .cards-courses .card .card-body p {
+        font-size: 15px;
+    }
+
+
+    .Price .plan .plan-header .plan-price {
+        font-size: 40px;
+    }
+
+    .Price .plan .plan-header .plan-price span {
+        font-size: 20px;
+    }
+
+    .Price .plans .plan .title h4 {
+        font-size: 16px !important;
+    }
+
+    .Price .plan-features h2 {
+        font-size: 18px !important;
+    }
+}
+
+/* mopile */
+@media (max-width: 768px) {
+
+    .alert p {
+        font-size: 14px;
+    }
+
+    header .logo,
+    footer .logo {
+        width: 30px;
+    }
+
+    header .container-custom {
+        gap: 4%;
+    }
+
+    .Benefits,
+    .courses,
+    .testimonials,
+    .Price,
+    .asked {
+        margin-bottom: 50px;
+    }
+
+    .hero-section .start-message .title h2 {
+        font-size: 16px;
+    }
+
+    .start-message .image-message {
+        height: 10vw;
+        width: 10vw;
+    }
+
+    .start-message .info h3 {
+        font-size: 24px;
+    }
+
+    .start-message .info p {
+        font-size: 14px;
+    }
+
+    .container-hero-custom {
+        gap: 5vh;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .hero-section .partners .image-partners {
+        width: 10vw;
+    }
+
+    .hero-section .partners .image-partners img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .hero-section .buttons .btn {
+        font-size: 14px;
+    }
+
+    .Benefits .title-section h3,
+    .courses .title h3,
+    .testimonials .title h3,
+    .Price .title h3,
+    .asked .title h2 {
+        font-size: 28px !important;
+    }
+
+    .Benefits .title-section p,
+    .courses .title p,
+    .testimonials .title p,
+    .Price .title p,
+    .asked .title p {
+        font-size: 14px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .Benefits .title-section,
+    .courses .title,
+    .testimonials .title,
+    .Price .title,
+    .asked .title {
+        width: 100% !important;
+    }
+
+    .btn {
+        font-size: 14px !important;
+    }
+
+    .Benefits .card {
+        padding: 85px 30px 60px;
+    }
+
+    .Benefits .card .info-card h3 {
+        font-size: 20px !important;
+    }
+
+    .Benefits .card .info-card p {
+        font-size: 14px !important;
+    }
+
+    .card span.number {
+        font-size: 50px;
+    }
+
+    .courses .cards-courses .card {
+        padding: 25px !important;
+    }
+
+    .courses .cards-courses .info span {
+        font-size: 14px;
+    }
+
+    .courses .cards-courses .card .card-body h5 {
+        font-size: 18px;
+    }
+
+    .courses .cards-courses .card .card-body p {
+        font-size: 14px;
+    }
+
+    .testimonials .card-testimonials .card-body {
+        padding: 30px !important;
+    }
+
+    .testimonials .card-footer {
+        padding: 30px !important;
+    }
+
+    .testimonials .card-testimonials p {
+        font-size: 14px;
+    }
+
+    .testimonials .card-testimonials .user {
+        font-size: 16px;
+    }
+
+    .Price .plans .plan .title h4 {
+        font-size: 16px !important;
+    }
+
+
+    .Price .plan .plan-header .plan-price {
+        font-size: 35px;
+    }
+
+    .Price .plan .plan-header .plan-price span {
+        font-size: 14px;
+    }
+
+    .Price .plan-features h2 {
+        font-size: 18px;
+    }
+
+    .asked .title h2,
+    .asked .title p {
+        width: 100%;
+    }
+
+    .accordion-item button {
+        font-size: 16px;
+    }
+
+    .accordion-body {
+        font-size: 14px;
+    }
+
+    footer {
+        padding-bottom: 30px;
+        padding-top: 50px;
+    }
+
+    footer .list-cntact li {
+        font-size: 15px;
+    }
+
+    footer .links h5 {
+        font-size: 18px;
+    }
+
+    footer .links li a {
+        font-size: 14px;
+    }
+
+    .Copyright p {
+        font-size: 14px;
+    }
+
+}

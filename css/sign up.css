@@ -1,0 +1,226 @@
+:root {
+    --color-orange: rgb(255, 149, 0);
+    --color-text-primary: #262626;
+    --color-text-secondary: #59595A;
+    --margin-bottom-section: 100px;
+}
+
+.btn-warning-custom,
+.btn-warning-custom:focus,
+.btn-warning-custom:active,
+.btn-warning-custom:hover,
+.btn-warning-custom:focus:active {
+    background-color: var(--color-orange) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+.btn-secondary-custom,
+.btn-secondary-custom:focus,
+.btn-secondary-custom:active,
+.btn-secondary-custom:hover,
+.btn-secondary-custom:focus:active {
+    background-color: #F7F7F8 !important;
+    color: var(--color-text-primary) !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+.btn-light-custom,
+.btn-light-custom:focus,
+.btn-light-custom:active,
+.btn-light-custom:hover,
+.btn-light-custom:focus:active {
+    background-color: #FCFCFD !important;
+    color: var(--color-text-primary) !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+
+
+body {
+    background-color: #F7F7F8;
+    font-family: "Be Vietnam Pro", sans-serif;
+}
+
+form {
+    background-color: #fff;
+
+}
+
+form>h2 {
+    font-size: 48px;
+    color: #333333;
+}
+
+form>p {
+    font-size: 18px;
+    color: #4C4C4C;
+}
+
+form label {
+    font-size: 18px;
+    color: var(--color-text-primary0);
+}
+
+form input::placeholder {
+    color: #656567 !important;
+    font-size: 18px !important;
+}
+
+form .forget-password span {
+    font-size: 18px;
+    color: #4C4C4C;
+}
+
+form .form-check label {
+    font-size: 18px;
+    color: #4C4C4C;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.custom-checkbox span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #656567;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+}
+
+.custom-checkbox input:checked+span {
+    background-color: #FF9500;
+    border-color: #FF9500;
+}
+
+.custom-checkbox span::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+}
+
+.custom-checkbox input:checked+span::after {
+    opacity: 1;
+}
+
+form .btn {
+    font-size: 18px;
+}
+
+form .btn h5 {
+    font-size: 18px;
+}
+
+form>h5 {
+    font-size: 18px;
+    color: #4C4C4C;
+}
+
+form>h5 a {
+    color: #4C4C4C;
+}
+
+form>.or span {
+    font-size: 18px;
+    color: #98989A;
+
+}
+
+.or span::after,
+.or span::before {
+    content: "";
+    border: 1px solid #98989A;
+    width: 45%;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+
+}
+
+.or span::before {
+    left: 5px;
+}
+
+.or span::after {
+    right: 5px;
+}
+
+.form-check a {
+    text-decoration: underline;
+}
+
+
+/* media large screen */
+@media(max-width: 992px) {
+    form>h2 {
+        font-size: 38px;
+    }
+
+    form>p,
+    form label,
+    form .forget-password span,
+    form .form-check label,
+    form .btn,
+    form>.or span,
+    form .btn h5,
+    form>h5 {
+        font-size: 16px;
+    }
+}
+
+
+/* media small screen */
+@media(max-width: 768px) {
+
+    form>h2 {
+        font-size: 28px;
+    }
+
+    form>p,
+    form label,
+    form .forget-password span,
+    form .form-check label,
+    form .btn,
+    form>.or span,
+    form .btn h5,
+    form>h5 {
+        font-size: 14px;
+    }
+
+    form input.form-control {
+        margin-bottom: 10px !important;
+    }
+
+    ;
+
+    form input::placeholder {
+        font-size: 14px !important;
+    }
+
+    .or span::after,
+    .or span::before {
+        width: 40%;
+
+    }
+
+}
