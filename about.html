@@ -12,8 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- bootstrap v 5.3.8 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- css -->
     <link rel="stylesheet" href="./css/about.css">
@@ -49,9 +48,12 @@
         <nav class="navbar navbar-expand-lg py-0 d-flex align-items-center">
             <div class="container-fluid container-custom d-flex align-items-center">
                 <div class="logo">
-                    <img src="image/logo/Logo.png" alt="logo image">
+                    <img src="./image/logo/Logo.png" alt="logo image">
                 </div>
                 <div class="d-flex gap-2 ms-auto order-lg-2">
+                    <a id="adminLinkWrapper" href="./dashboard.html" style="display:none;">
+                        <button id="adminLinkBtn" class="btn btn-outline-dark">Admin Dashboard</button>
+                    </a>
                     <a href="./sign-up.html">
                         <button class="btn">Sign up</button>
                     </a>
@@ -288,7 +290,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-3">
                     <div class="contact d-flex flex-column gap-3">
                         <div class="logo">
-                            <img src="image/logo/Logo.png" alt="logo">
+                            <img src="./image/logo/Logo.png" alt="logo">
                         </div>
                         <ul class="list-cntact list-unstyled d-flex flex-column gap-2">
                             <li>
@@ -359,9 +361,9 @@
     </footer>
 
     <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
     <!-- AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
@@ -373,5 +375,57 @@
 
     <script src="./js/about.js"></script>
 </body>
+
+<script src="./js/script.js"></script>
+<script>
+    // Responsive admin link: show in header on large screens, move into collapsed nav on small screens
+    (function () {
+        const adminKey = 'loggedInAdmin';
+        const adminLink = document.getElementById('adminLinkWrapper');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const navCollapse = document.getElementById('navbarSupportedContent');
+        const injectedId = 'adminNavItem';
+
+        function createNavItem() {
+            if (!navCollapse) return;
+            if (document.getElementById(injectedId)) return;
+            const ul = navCollapse.querySelector('.navbar-nav') || navCollapse;
+            const li = document.createElement('li');
+            li.className = 'nav-item';
+            li.id = injectedId;
+            li.innerHTML = `<a class="nav-link" href="./dashboard.html">Admin Dashboard</a>`;
+            ul.appendChild(li);
+        }
+
+        function removeNavItem() {
+            const it = document.getElementById(injectedId);
+            if (it) it.remove();
+        }
+
+        function updateVisibility() {
+            const isAdmin = !!localStorage.getItem(adminKey);
+            if (!isAdmin) {
+                if (adminLink) adminLink.style.display = 'none';
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                removeNavItem();
+                return;
+            }
+            // admin is logged in
+            if (window.innerWidth > 768) {
+                if (adminLink) adminLink.style.display = '';
+                removeNavItem();
+            } else {
+                if (adminLink) adminLink.style.display = 'none';
+                createNavItem();
+            }
+            if (logoutBtn) logoutBtn.style.display = '';
+        }
+
+        window.addEventListener('resize', updateVisibility);
+        // keep logout behavior
+        logoutBtn?.addEventListener('click', function (e) { e.preventDefault(); localStorage.removeItem('loggedInUser'); localStorage.removeItem('loggedInAdmin'); location.reload(); });
+        updateVisibility();
+    })();
+</script>
 
 </html>

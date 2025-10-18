@@ -59,26 +59,54 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (!isEmailValid || !isPasswordValid) return;
 
-    const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
+    // first try admin authentication from the admin store
+    const store = JSON.parse(
+      localStorage.getItem("courses_admin_store_v1")
+    ) || { admins: [] };
+    const foundAdmin = (store.admins || []).find(
+      (a) =>
+        a.email === email.value.trim() && a.password === password.value.trim()
+    );
+    if (foundAdmin) {
+      loginError.style.display = "none";
+      notyf.success("Admin login successful!");
+      localStorage.setItem(
+        "loggedInAdmin",
+        JSON.stringify({
+          id: foundAdmin.id,
+          email: foundAdmin.email,
+          name: foundAdmin.name,
+        })
+      );
+      loginForm.reset();
+      setTimeout(() => {
+        // after admin login go to main site landing (index)
+        window.location.href = "./index.html";
+      }, 800);
+      return;
+    }
 
+    // fallback to regular accounts if any
+    const accounts = JSON.parse(localStorage.getItem("accounts")) || [];
     const foundUser = accounts.find(
       (acc) =>
         acc.email === email.value.trim() &&
         acc.password === password.value.trim()
     );
-
     if (foundUser) {
       loginError.style.display = "none";
       notyf.success("Login successful!");
-
-      // save data user
-      localStorage.setItem("loggedInUser", JSON.stringify(foundUser));
+      // Ensure email and joined date are part of the loggedInUser object
+      const userToSave = {
+        ...foundUser,
+        email: foundUser.email || email.value.trim(),
+        joined: foundUser.joined || new Date().toISOString().split("T")[0],
+      };
+      localStorage.setItem("loggedInUser", JSON.stringify(userToSave));
       loginForm.reset();
-
-      // return the home page
       setTimeout(() => {
         window.location.href = "./index.html";
-      }, 1500);
+      }, 800);
     } else {
       loginError.textContent = "Email or Password is incorrect.";
       loginError.style.display = "block";

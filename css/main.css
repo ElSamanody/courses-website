@@ -101,6 +101,33 @@ nav li a {
     font-weight: bold;
 }
 
+#navAvatarDropdown:hover, 
+#navAvatarDropdown:focus ,
+#navAvatarDropdown:active {
+    border: none !important;
+    outline: none !important;   /* يمنع الخط الخارجي */
+    box-shadow: none !important; /* يمنع أي تأثير ظل */
+}
+
+#navAvatarDropdown img {
+    pointer-events: none !important; /* يمنع الصورة نفسها من تلقي أي تأثير */
+}
+
+#adminLinkWrapper:hover, 
+#adminLinkWrapper:focus ,
+#adminLinkWrapper:active {
+    border: none !important;
+    outline: none !important;   /* يمنع الخط الخارجي */
+    box-shadow: none !important; /* يمنع أي تأثير ظل */
+}
+
+.dropdown-menu-custom li a:hover, 
+.dropdown-menu-custom li a:focus ,
+.dropdown-menu-custom li a:active {
+    background-color: #eee;
+}
+
+
 
 .container-custom {
     margin-left: 5%;
@@ -293,6 +320,19 @@ nav li a {
 
 .buttons-price {
     background-color: #fff;
+}
+
+.buttons-price .active,
+.buttons-price .active:focus,
+.buttons-price .active:active,
+.buttons-price .active:hover,
+.buttons-price .active:focus:active {
+    background-color: var(--color-orange) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+
 }
 
 .Price .plans {
@@ -624,6 +664,27 @@ footer .Copyright {
     .alert p {
         font-size: 14px;
     }
+
+    /* Custom toast styles */
+    .custom-toast {
+        font-family: inherit;
+    }
+
+    .custom-toast .toast-icon {
+        opacity: 0.95;
+    }
+
+    /* Confirm overlay styles are inline in JS but ensure font and button look consistent */
+    .custom-confirm-dialog .btn-confirm {
+        background: var(--color-orange);
+        color: #fff;
+    }
+
+    .custom-confirm-dialog .btn-cancel {
+        background: #f3f4f6;
+        color: #111;
+    }
+
 
     header .logo,
     footer .logo {

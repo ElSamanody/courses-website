@@ -1,0 +1,297 @@
+/* Admin dashboard styles matched to site's design tokens */
+:root {
+    --brand-orange: rgb(255, 149, 0);
+    --text-primary: #262626;
+    --bg: #F7F7F8;
+}
+
+body {
+    background: var(--bg);
+    font-family: "Be Vietnam Pro", sans-serif;
+}
+
+.admin-app {
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    border-right: 1px solid #eee;
+}
+
+/* Desktop / tablet: keep sidebar visible and sticky while main content scrolls */
+@media (min-width: 769px) {
+    .sidebar {
+        /* make the sidebar fixed to the left so it stays while content scrolls */
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        /* fit viewport height */
+        overflow: auto;
+        /* allow internal scrolling if items exceed height */
+        -webkit-overflow-scrolling: touch;
+        /* ensure sidebar occupies fixed width inside flex layout */
+        flex: 0 0 250px;
+    }
+
+    /* main is a flex-fill element (already .flex-fill) and will occupy remaining space */
+    .main {
+        flex: 1 1 auto;
+        min-width: 0;
+        /* allow content to shrink properly inside flexbox */
+    }
+
+    /* Hide sidebar toggle on large screens where sidebar is always visible */
+    #sidebarToggle {
+        display: none;
+    }
+}
+
+.sidebar .logo-small {
+    width: 40px;
+}
+
+.sidebar .nav-link {
+    color: var(--text-primary);
+    padding: .6rem 1rem;
+    border-radius: 8px;
+}
+
+.sidebar .nav-link.active {
+    background: #2626261e;
+    font-weight: 600;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    border-bottom: 1px solid #F1F1F3;
+}
+
+.topbar input {
+    width: 260px;
+}
+
+/* ensure admin orange matches site brand and buttons use consistent classes */
+.btn-warning-custom,
+.btn-warning-custom:focus,
+.btn-warning-custom:active,
+.btn-warning-custom:hover,
+.btn-warning-custom:focus:active {
+    background-color: var(--color-orange) !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    border: none;
+    outline: none !important;
+}
+
+.card {
+    border-radius: 10px;
+    background: #fff;
+}
+
+.overview-card {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.overview-card h6 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-primary);
+}
+
+.overview-card p {
+    margin: 0;
+    color: #59595A;
+}
+
+.overview-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+.badge-status {
+    padding: .35rem .6rem;
+    border-radius: 8px;
+}
+
+.badge-status.completed {
+    background: #e6fff0;
+    color: #157347;
+}
+
+.badge-status.pending {
+    background: #fff7e6;
+    color: #7a4a00;
+}
+
+.badge-status.canceled {
+    background: #ffecec;
+    color: #7a1a1a;
+}
+
+.list-group .list-group-item {
+    background: #fff;
+    border: 1px solid #f1f1f3;
+}
+
+@media (max-width: 768px) {
+
+    /* On small screens make sidebar an off-canvas panel that can slide in */
+    .sidebar {
+        position: fixed;
+        left: -260px;
+        /* hidden by default */
+        top: 0;
+        height: 100vh;
+        width: 240px;
+        background: #fff;
+        border-right: 1px solid #eee;
+        z-index: 1040;
+        transition: left 220ms ease;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .sidebar.show {
+        left: 0;
+    }
+
+    /* dim background when sidebar open */
+    .admin-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.38);
+        z-index: 1030;
+        display: none;
+    }
+
+    .admin-overlay.show {
+        display: block;
+    }
+
+    .topbar input {
+        width: 140px;
+    }
+
+    /* stack topbar items and reduce padding for mobile */
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: .5rem 1rem;
+    }
+
+    .topbar h4 {
+        font-size: 1rem;
+    }
+
+    main.p-4 {
+        padding: .75rem !important;
+    }
+
+    /* make table text slightly smaller on small screens */
+    .table thead th,
+    .table tbody td {
+        font-size: 14px;
+        padding: .45rem .5rem;
+    }
+
+    /* responsive overview cards: full width on mobile */
+    .overview-card {
+        flex-direction: row;
+        gap: .5rem;
+        padding: .75rem;
+    }
+}
+
+/* Style for all "Edit" buttons in the admin dashboard tables */
+.table .btn.edit-course,
+.table .btn.edit-student,
+.table .btn.edit-enrollment,
+.table .btn.edit-admin {
+    background-color: #6c757d !important;
+    /* Bootstrap's secondary gray */
+    color: white !important;
+    border-color: #6c757d !important;
+    box-shadow: none !important;
+}
+
+.table .btn.edit-course:hover,
+.table .btn.edit-course:focus,
+.table .btn.edit-course:active,
+.table .btn.edit-student:hover,
+.table .btn.edit-student:focus,
+.table .btn.edit-student:active,
+.table .btn.edit-enrollment:hover,
+.table .btn.edit-enrollment:focus,
+.table .btn.edit-enrollment:active,
+.table .btn.edit-admin:hover,
+.table .btn.edit-admin:focus,
+.table .btn.edit-admin:active {
+    background-color: #6c757d !important;
+    color: white !important;
+    border-color: #6c757d !important;
+}
+
+/* Enrollments Section: Consistent Button Styling */
+
+/* Edit button in Enrollments table */
+#tab-enrollments .btn.edit-enrollment,
+#tab-enrollments .btn.edit-enrollment:hover,
+#tab-enrollments .btn.edit-enrollment:focus,
+#tab-enrollments .btn.edit-enrollment:active {
+    background-color: #6c757d !important;
+    /* Bootstrap's secondary gray */
+    color: white !important;
+    border-color: #6c757d !important;
+    box-shadow: none !important;
+}
+
+/* Delete button in Enrollments table */
+#tab-enrollments .btn.delete-enrollment,
+#tab-enrollments .btn.delete-enrollment:hover,
+#tab-enrollments .btn.delete-enrollment:focus,
+#tab-enrollments .btn.delete-enrollment:active {
+    background-color: #dc3545 !important;
+    /* Bootstrap's danger red */
+    color: white !important;
+    border-color: #dc3545 !important;
+    box-shadow: none !important;
+}
+
+/* Filter button in Enrollments section */
+#applyFilters,
+#applyFilters:hover,
+#applyFilters:focus,
+#applyFilters:active {
+    background-color: #e9ecef !important;
+    /* A light gray for non-destructive actions */
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+    box-shadow: none !important;
+}
+
+/* Delete button in Courses table */
+#coursesTable .btn.delete-course,
+#coursesTable .btn.delete-course:hover,
+#coursesTable .btn.delete-course:focus,
+#coursesTable .btn.delete-course:active {
+    background-color: #dc3545 !important;
+    /* Bootstrap's danger red */
+    color: white !important;
+    border-color: #dc3545 !important;
+    box-shadow: none !important;
+}

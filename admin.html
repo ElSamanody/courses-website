@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard - Courses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"> </script>
+</head>
+
+<body>
+
+    <div class="admin-app d-flex">
+        <!-- Sidebar -->
+        <aside class="sidebar bg-white">
+            <div class="sidebar-header p-4 d-flex align-items-center gap-2">
+                <img src="image/logo/logo.png" alt="logo" class="logo-small">
+                <h5 class="m-0">Courses Admin</h5>
+            </div>
+            <nav class="nav flex-column p-3" id="sidebarTabs">
+                <a class="nav-link active" data-tab="courses" href="#">Courses</a>
+                <a class="nav-link" data-tab="students" href="#">Students</a>
+                <a class="nav-link" data-tab="enrollments" href="#">Enrollments</a>
+                <a class="nav-link" data-tab="admins" href="#">Admins</a>
+            </nav>
+        </aside>
+
+        <!-- Main content -->
+        <div class="main flex-fill">
+            <!-- Topbar -->
+            <header class="topbar d-flex align-items-center justify-content-between px-4 py-3 bg-white">
+                <div class="d-flex align-items-center gap-3">
+                    <button id="sidebarToggle" class="btn btn-light btn-sm">☰</button>
+                    <h4 class="m-0">Admin Dashboard</h4>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <div id="globalInfo" class="d-flex align-items-center gap-2">
+                        <div id="currentTabLabel" class="text-muted">Courses</div>
+                    </div>
+                    <div id="notifBadge" class="badge bg-warning btn-warning-custom text-dark">0</div>
+                    <!-- View Site button -->
+                    <a id="viewSiteBtn" href="./index.html" class="btn btn-warning btn-warning-custom btn-sm ms-2">View
+                        Site</a>
+                </div>
+            </header>
+
+            <main class="p-4">
+                <!-- Tabs: only one visible at a time -->
+                <section id="tab-courses" class="tab-content mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex gap-2 align-items-center">
+                            <h5 class="m-0">Courses</h5>
+                            <input id="courseSearch" class="form-control form-control-sm" placeholder="Search courses">
+                        </div>
+                        <div>
+                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal"
+                                id="addCourseBtn">Add New Course</button>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="coursesTable">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Instructor</th>
+                                        <th>Duration</th>
+                                        <th>Level</th>
+                                        <th>Category</th>
+                                        <th>Price</th>
+                                        <th>Sections / Lessons</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tab-students" class="tab-content mb-4" style="display:none;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex gap-2 align-items-center">
+                            <h5 class="m-0">Students</h5>
+                            <input id="studentSearch" class="form-control form-control-sm"
+                                placeholder="Search students">
+                        </div>
+                        <div>
+                            <button class="btn btn-warning btn-warning-custom btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#studentModal" id="addStudentBtn">Add User</button>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="table-responsive">
+                            <table class="table table-hover" id="studentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Enrolled</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tab-enrollments" class="tab-content mb-4" style="display:none;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex gap-2 align-items-center">
+                            <h5 class="m-0">Enrollments</h5>
+                            <input id="enrollmentSearch" class="form-control form-control-sm"
+                                placeholder="Search enrollments">
+                        </div>
+                        <div class="d-flex gap-3 align-items-center">
+                            <div class="d-flex gap-2 align-items-center">
+                                <select id="filterCourse" class="form-select form-select-sm"></select>
+                                <input id="filterDate" type="date" class="form-control form-control-sm">
+                                <button id="applyFilters" class="btn btn-light btn-sm">Filter</button>
+                            </div>
+                            <button class="btn btn-warning btn-warning-custom btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#enrollmentModal" id="addEnrollmentBtn">Add Enrollment</button>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="table-responsive">
+                            <table class="table" id="enrollmentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Course</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="tab-admins" class="tab-content mb-4" style="display:none;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="d-flex gap-2 align-items-center">
+                            <h5 class="m-0">Admins</h5>
+                            <input id="adminSearch" class="form-control form-control-sm" placeholder="Search admins">
+                        </div>
+                        <div>
+                            <button class="btn btn-warning btn-warning-custom btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#adminModal" id="addAdminBtn">Add Admin</button>
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                        <div class="table-responsive">
+                            <table class="table" id="adminsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Permissions</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports -->
+                <section id="reports" class="mb-4">
+                    <h5>Reports</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card p-3">
+                                <h6>Enrollments (last 7 days)</h6>
+                                <canvas id="enrollChart" height="150"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card p-3">
+                                <h6>New Courses (monthly)</h6>
+                                <canvas id="coursesChart" height="150"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notifications -->
+                <section id="notifications" class="mb-4">
+                    <h5>Notifications</h5>
+                    <div id="notificationsList" class="list-group mt-2"></div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Course Modal -->
+    <div class="modal fade" id="courseModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="courseForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add / Edit Course</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="courseId">
+                        <div class="mb-2">
+                            <label>Title</label>
+                            <input id="courseTitle" class="form-control" required>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <label>Instructor</label>
+                                <input id="courseInstructor" class="form-control" placeholder="Instructor name">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Duration</label>
+                                <input id="courseDuration" class="form-control" placeholder="e.g. 3h 20m">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Level</label>
+                                <select id="courseLevel" class="form-select">
+                                    <option value="">Select level</option>
+                                    <option value="Beginner">Beginner</option>
+                                    <option value="Intermediate">Intermediate</option>
+                                    <option value="Advanced">Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <label>Category</label>
+                            <input id="courseCategory" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label>Description</label>
+                            <textarea id="courseDescription" class="form-control" rows="3"
+                                placeholder="Short course description" autocomplete="off"></textarea>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <label>Course Key (slug)</label>
+                                <input id="courseKey" class="form-control" placeholder="e.g. web-design">
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center">
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="checkbox" id="courseVisible" checked>
+                                    <label class="form-check-label ms-2">Visible</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <label>Price</label>
+                                <select id="coursePriceType" class="form-select">
+                                    <option value="free">Free</option>
+                                    <option value="paid">Paid</option>
+                                </select>
+                                <input id="coursePrice" type="number" class="form-control mt-2" placeholder="Price"
+                                    disabled>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Images (URL or upload)</label>
+                                <div class="input-group mb-2">
+                                    <input id="courseImageUrlInput" class="form-control" placeholder="Image URL">
+                                    <button type="button" id="addImageUrlBtn" class="btn btn-secondary-custom">Add
+                                        URL</button>
+                                </div>
+                                <div class="input-group">
+                                    <input id="courseImageFileInput" type="file" accept="image/*" class="form-control">
+                                    <button type="button" id="addImageFileBtn"
+                                        class="btn btn-secondary-custom">Upload</button>
+                                </div>
+                                <div id="courseImagesList" class="mt-2"></div>
+                            </div>
+                        </div>
+                        <div class="row g-2 mt-3">
+                            <div class="col-md-4">
+                                <label>Section title</label>
+                                <input id="sectionTitleInput" class="form-control" placeholder="Section title">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Lesson title</label>
+                                <input id="lessonTitleInput" class="form-control" placeholder="Lesson title">
+                            </div>
+                            <div class="col-md-4">
+                                <label>Lesson duration</label>
+                                <input id="lessonDurationInput" class="form-control" placeholder="e.g. 45 Minutes">
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-2">
+                            <button type="button" id="addLessonBtn" class="btn btn-light">Add Lesson</button>
+                            <button type="button" id="addSectionBtn" class="btn btn-warning">Add Section</button>
+                        </div>
+                        <div id="tempLessonsList" class="mt-2"></div>
+                        <div id="sectionsList" class="mt-3"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-warning btn-warning-custom">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div class="modal fade" id="adminModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="adminForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add / Edit Admin</h5><button type="button" class="btn-close"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="adminId">
+                        <div class="mb-2"><label>Name</label><input id="adminName" class="form-control" required></div>
+                        <div class="mb-2"><label>Email</label><input id="adminEmail" type="email" class="form-control">
+                        </div>
+                        <div class="mb-2"><label>Password</label><input id="adminPassword" type="password"
+                                class="form-control" placeholder="Set a password"></div>
+                        <div class="mb-2"><label>Permissions</label>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="permAdd"> <label
+                                    class="form-check-label">Add courses</label></div>
+                            <div class="form-check"><input class="form-check-input" type="checkbox" id="permEdit">
+                                <label class="form-check-label">Edit/Delete</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancel</button><button class="btn btn-warning btn-warning-custom"
+                            type="submit">Create</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Modal -->
+    <div class="modal fade" id="studentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="studentForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add / Edit Student</h5><button type="button" class="btn-close"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="studentId">
+                        <div class="mb-2"><label>Name</label><input id="studentName" class="form-control" required
+                                autocomplete="name">
+                        </div>
+                        <div class="mb-2"><label>Email</label><input id="studentEmail" type="email" class="form-control"
+                                required></div>
+                        <div class="mb-2"><label>Enrolled Courses (hold Ctrl/Cmd to select multiple)</label>
+                            <select id="studentEnrolled" class="form-select" multiple></select>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancel</button><button class="btn btn-warning btn-warning-custom"
+                            type="submit">Save</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enrollment Modal -->
+    <div class="modal fade" id="enrollmentModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="enrollmentForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add / Edit Enrollment</h5><button type="button" class="btn-close"
+                            data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="enrollmentId">
+                        <div class="mb-2"><label>Student</label><select id="enrollmentStudent" class="form-select"
+                                required></select></div>
+                        <div class="mb-2"><label>Course</label><select id="enrollmentCourse" class="form-select"
+                                required></select></div>
+                        <div class="mb-2"><label>Date</label><input id="enrollmentDate" type="date" class="form-control"
+                                required></div>
+                        <div class="mb-2"><label>Status</label>
+                            <select id="enrollmentStatus" class="form-select">
+                                <option value="completed">completed</option>
+                                <option value="pending">pending</option>
+                                <option value="canceled">canceled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer"><button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">Cancel</button><button class="btn btn-warning btn-warning-custom"
+                            type="submit">Save</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <script src="js/alerts.js"></script>
+    <script src="js/admin.js"></script>
+    <!-- overlay used for mobile sidebar dimming -->
+    <div class="admin-overlay" aria-hidden="true"></div>
+</body>
+
+</html>

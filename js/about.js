@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function checkLoginStatus() {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (user) {
+    const admin = JSON.parse(localStorage.getItem("loggedInAdmin"));
+    if (user || admin) {
       if (loginBtn) loginBtn.style.display = "none";
       if (signupBtn) signupBtn.style.display = "none";
       if (logoutBtn) logoutBtn.style.display = "inline-block";
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (logoutBtn) {
     logoutBtn.addEventListener("click", () => {
       localStorage.removeItem("loggedInUser");
+      localStorage.removeItem("loggedInAdmin");
       window.location.replace("./login.html");
     });
   }
