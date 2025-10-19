@@ -1,7 +1,10 @@
 (function () {
   // Helper: get/set current user in LocalStorage
   function getCurrentUser() {
+    // Prefer admin session, then user session
     try {
+      const admin = JSON.parse(localStorage.getItem("loggedInAdmin") || "null");
+      if (admin) return admin;
       return JSON.parse(localStorage.getItem("loggedInUser") || "null");
     } catch (e) {
       return null;
@@ -9,8 +12,12 @@
   }
 
   function saveCurrentUser(user) {
-    if (!user) return;
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
+    if (!user || !user.email) return;
+    // Check if the user is an admin to save to the correct key
+    const admin = JSON.parse(localStorage.getItem("loggedInAdmin") || "null");
+    const key =
+      admin && admin.email === user.email ? "loggedInAdmin" : "loggedInUser";
+    localStorage.setItem(key, JSON.stringify(user));
   }
 
   function showToast(message) {
@@ -35,23 +42,6 @@
     }
   }
 
-  function updateNavbarAvatar(u) {
-    const img = document.getElementById("navAvatarImg");
-    if (!img) return;
-    if (u && u.avatar) img.src = u.avatar;
-    else if (u && (u.username || u.name)) {
-      const displayName = u.username || u.name;
-      const initials = displayName
-        .split(" ")
-        .map((s) => s[0])
-        .slice(0, 2)
-        .join("")
-        .toUpperCase();
-      const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='128' height='128'><rect width='100%' height='100%' fill='%23f3f4f6'/><text x='50%' y='50%' dy='.35em' text-anchor='middle' font-family='Arial' font-size='52' fill='%23222'>${initials}</text></svg>`;
-      img.src = "data:image/svg+xml;base64," + btoa(svg);
-    } else img.src = "./image/logo/Icon Container.png";
-  }
-
   function populateProfilePage() {
     const user = getCurrentUser();
     const avatar = document.getElementById("profileAvatar");
@@ -59,7 +49,23 @@
     const displayEmail = document.getElementById("displayEmail");
     const displayJoined = document.getElementById("displayJoined");
 
-    if (avatar) avatar.src = user?.avatar || "./image/logo/Icon Container.png";
+    // Consistent avatar display logic
+    if (avatar) {
+      if (user && user.avatar) {
+        avatar.src = user.avatar;
+      } else {
+        // In a real app, you might replace the img with an icon, but for simplicity, we use a placeholder image.
+        // To show an icon, we would need a separate element.
+        // For simplicity with the current structure, we use a placeholder.
+        // A better approach is to have an icon element ready in HTML to toggle visibility.
+        // For now, a placeholder URL is a simple fix.
+        avatar.src = "https://via.placeholder.com/140x140.png?text=No+Image"; // Placeholder for profile page
+        // As a fallback, you could show a generic placeholder image:
+        // avatar.src = "https://via.placeholder.com/50x50.png?text=U";
+        // If you add a placeholder icon element to profile.html like in the header,
+        // you can toggle visibility here just like in auth.js
+      }
+    }
     // Use username field from signup, fallback to name field, then "Guest"
     if (displayName)
       displayName.textContent = user?.username || user?.name || "Guest";
@@ -197,8 +203,6 @@
       if (!u.joined) u.joined = new Date().toISOString().split("T")[0];
 
       saveCurrentUser(u);
-      // update navbar
-      updateNavbarAvatar(u);
       // notify
       // prefer the custom alerts.toast, fallback to the small DOM toast used elsewhere
       try {
@@ -214,20 +218,12 @@
       openEdit.style.display = "";
       // reflect updates in page
       populateProfilePage();
-      // dispatch storage event for other tabs
-      try {
-        localStorage.setItem("loggedInUser", JSON.stringify(u));
-      } catch (e) {}
+      // Dispatch a custom event that auth.js can listen to
+      window.dispatchEvent(new CustomEvent("authChange"));
     });
   }
 
-  // dropdown logout handling is in script.js; listen for storage changes to update avatar
-  window.addEventListener("storage", (e) => {
-    if (e.key === "loggedInUser") updateNavbarAvatar(getCurrentUser());
-  });
-
   document.addEventListener("DOMContentLoaded", () => {
     populateProfilePage();
-    updateNavbarAvatar(getCurrentUser());
   });
 })();
