@@ -9,6 +9,59 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const notyf = new Notyf();
 
+  // ======================================================
+  // 🧩 Seed default admin if not exists in localStorage
+  // ======================================================
+  (function seedAdmin() {
+    const STORE_KEY = "courses_admin_store_v1";
+
+    const seed = {
+      courses: [],
+      students: [],
+      enrollments: [],
+      admins: [
+        {
+          id: 1,
+          name: "Elsayed (Admin)",
+          email: "elsayed@gmail.com",
+          password: "1234567890",
+          perms: { add: true, edit: true },
+        },
+      ],
+      notifications: {
+        courses: [],
+        students: [],
+        enrollments: [],
+        admins: [],
+        overview: [],
+      },
+    };
+
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (!raw) {
+        localStorage.setItem(STORE_KEY, JSON.stringify(seed));
+        console.log("✅ Default admin created in localStorage.");
+        return;
+      }
+
+      const existing = JSON.parse(raw);
+      existing.admins = Array.isArray(existing.admins) ? existing.admins : [];
+
+      const hasAdmin = existing.admins.some(
+        (a) => a.email === seed.admins[0].email
+      );
+      if (!hasAdmin) {
+        existing.admins.push(seed.admins[0]);
+        localStorage.setItem(STORE_KEY, JSON.stringify(existing));
+        console.log("✅ Seed admin added to existing store.");
+      }
+    } catch (e) {
+      console.error("❌ Error seeding admin:", e);
+    }
+  })();
+  // ======================================================
+
   // ===== Validation =====
   function validateEmail() {
     if (email.value.trim() === "") {
@@ -62,7 +115,9 @@ window.addEventListener("DOMContentLoaded", () => {
     // first try admin authentication from the admin store
     const store = JSON.parse(
       localStorage.getItem("courses_admin_store_v1")
-    ) || { admins: [] };
+    ) || {
+      admins: [],
+    };
     const foundAdmin = (store.admins || []).find(
       (a) =>
         a.email === email.value.trim() && a.password === password.value.trim()
@@ -80,7 +135,6 @@ window.addEventListener("DOMContentLoaded", () => {
       );
       loginForm.reset();
       setTimeout(() => {
-        // after admin login go to main site landing (index)
         window.location.href = "./index.html";
       }, 800);
       return;
@@ -96,7 +150,6 @@ window.addEventListener("DOMContentLoaded", () => {
     if (foundUser) {
       loginError.style.display = "none";
       notyf.success("Login successful!");
-      // Ensure email and joined date are part of the loggedInUser object
       const userToSave = {
         ...foundUser,
         email: foundUser.email || email.value.trim(),

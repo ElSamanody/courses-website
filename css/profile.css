@@ -1,0 +1,55 @@
+.image-container {
+    width: 150px;
+    height: 150px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.image-container i {
+    font-size: 75px;
+    color: #777;
+    background-color: #eee;
+    width: 100%;
+    height: 100%;
+}
+
+/* الحاوية */
+#profileAvatarWrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+
+}
+
+/* الصورة */
+#profileAvatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    border: 2px solid #ddd !important;
+    object-fit: cover !important;
+    display: none;
+}
+
+/* الأيقونة */
+#profileAvatarPlaceholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    background-color: #eee !important;
+    color: #777 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

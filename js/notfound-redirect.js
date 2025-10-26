@@ -7,7 +7,7 @@
   "use strict";
 
   // Path to the custom not-found page. Use absolute path for consistency.
-  const NOTFOUND_PAGE = "/notfound.html";
+  const NOTFOUND_PAGE = "/404.html";
 
   // Helper: detect if current page is the notfound page to avoid redirect loops
   function isOnNotFoundPage() {
