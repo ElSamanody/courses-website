@@ -1,4 +1,10 @@
 /* Admin dashboard styles matched to site's design tokens */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+
 :root {
     --brand-orange: rgb(255, 149, 0);
     --text-primary: #262626;
@@ -17,34 +23,6 @@ body {
 .sidebar {
     width: 250px;
     border-right: 1px solid #eee;
-}
-
-/* Desktop / tablet: keep sidebar visible and sticky while main content scrolls */
-@media (min-width: 769px) {
-    .sidebar {
-        /* make the sidebar fixed to the left so it stays while content scrolls */
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        /* fit viewport height */
-        overflow: auto;
-        /* allow internal scrolling if items exceed height */
-        -webkit-overflow-scrolling: touch;
-        /* ensure sidebar occupies fixed width inside flex layout */
-        flex: 0 0 250px;
-    }
-
-    /* main is a flex-fill element (already .flex-fill) and will occupy remaining space */
-    .main {
-        flex: 1 1 auto;
-        min-width: 0;
-        /* allow content to shrink properly inside flexbox */
-    }
-
-    /* Hide sidebar toggle on large screens where sidebar is always visible */
-    #sidebarToggle {
-        display: none;
-    }
 }
 
 .sidebar .logo-small {
@@ -223,7 +201,6 @@ body {
 .table .btn.edit-enrollment,
 .table .btn.edit-admin {
     background-color: #6c757d !important;
-    /* Bootstrap's secondary gray */
     color: white !important;
     border-color: #6c757d !important;
     box-shadow: none !important;
@@ -254,7 +231,6 @@ body {
 #tab-enrollments .btn.edit-enrollment:focus,
 #tab-enrollments .btn.edit-enrollment:active {
     background-color: #6c757d !important;
-    /* Bootstrap's secondary gray */
     color: white !important;
     border-color: #6c757d !important;
     box-shadow: none !important;
@@ -266,7 +242,6 @@ body {
 #tab-enrollments .btn.delete-enrollment:focus,
 #tab-enrollments .btn.delete-enrollment:active {
     background-color: #dc3545 !important;
-    /* Bootstrap's danger red */
     color: white !important;
     border-color: #dc3545 !important;
     box-shadow: none !important;
@@ -278,7 +253,6 @@ body {
 #applyFilters:focus,
 #applyFilters:active {
     background-color: #e9ecef !important;
-    /* A light gray for non-destructive actions */
     color: #212529 !important;
     border-color: #dee2e6 !important;
     box-shadow: none !important;
@@ -290,8 +264,30 @@ body {
 #coursesTable .btn.delete-course:focus,
 #coursesTable .btn.delete-course:active {
     background-color: #dc3545 !important;
-    /* Bootstrap's danger red */
     color: white !important;
     border-color: #dc3545 !important;
     box-shadow: none !important;
+}
+
+/* Desktop / tablet: keep sidebar visible and sticky while main content scrolls */
+@media (min-width: 769px) {
+    .sidebar {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        /* fit viewport height */
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+        flex: 0 0 250px;
+    }
+
+    /* main is a flex-fill element (already .flex-fill) and will occupy remaining space */
+    .main {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    #sidebarToggle {
+        display: none;
+    }
 }

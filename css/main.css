@@ -1,3 +1,9 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
+
 :root {
     --color-orange: rgb(255, 149, 0);
     --color-text-primary: #262626;
@@ -541,7 +547,6 @@ footer .Copyright {
 #Our-Testimonials,
 #Our-FAQ {
     scroll-margin-top: 100px;
-    /* ارتفاع navbar */
 }
 
 /* mediam  */

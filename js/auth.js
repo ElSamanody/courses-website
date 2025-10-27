@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const adminLinkWrapper = document.getElementById("adminLinkWrapper");
   const logoutBtn = document.getElementById("logoutBtn");
 
-  // ✅ دالة التحقق من حالة تسجيل الدخول
   function checkAuthStatus() {
     let user = null;
     let admin = null;
@@ -22,12 +21,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const loggedInEntity = user || admin;
 
     if (loggedInEntity) {
-      // ✅ إظهار المستخدم وإخفاء أزرار الدخول
+      // show user button and disable buttons login, sign up
       if (loginBtnWrapper) loginBtnWrapper.style.display = "none";
       if (signupBtnWrapper) signupBtnWrapper.style.display = "none";
       if (userProfileWrapper) userProfileWrapper.style.display = "block";
 
-      // ✅ صورة البروفايل أو الأيقونة الافتراضية
+      // photo profile or icon default
       if (userAvatar && userAvatarPlaceholder) {
         const avatarSrc = loggedInEntity.avatar?.trim();
 
@@ -46,20 +45,18 @@ document.addEventListener("DOMContentLoaded", () => {
             userAvatarPlaceholder.style.display = "flex";
           };
         } else {
-          // لو مفيش صورة
           userAvatar.style.display = "none";
           userAvatarPlaceholder.style.display = "flex";
         }
       }
 
-      // ✅ لو أدمن، أظهر رابط الأدمن
+      // if login admin show btn admin dashboard
       if (admin && adminLinkWrapper) {
         adminLinkWrapper.style.display = "block";
       } else if (adminLinkWrapper) {
         adminLinkWrapper.style.display = "none";
       }
     } else {
-      // ❌ مفيش حد داخل
       if (loginBtnWrapper) loginBtnWrapper.style.display = "block";
       if (signupBtnWrapper) signupBtnWrapper.style.display = "block";
       if (userProfileWrapper) userProfileWrapper.style.display = "none";
@@ -68,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // 🟢 تسجيل خروج المستخدم
+  // logout
   if (logoutBtn) {
     logoutBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -79,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 🧠 تشغيل أول مرة + متابعة التحديثات
+  // render first load and update
   checkAuthStatus();
   window.addEventListener("authChange", checkAuthStatus);
 });

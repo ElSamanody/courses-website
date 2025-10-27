@@ -18,7 +18,6 @@
     height: 100%;
 }
 
-/* الحاوية */
 #profileAvatarWrapper {
     position: relative;
     width: 150px;
@@ -26,7 +25,6 @@
 
 }
 
-/* الصورة */
 #profileAvatar {
     position: absolute;
     top: 0;
@@ -39,7 +37,6 @@
     display: none;
 }
 
-/* الأيقونة */
 #profileAvatarPlaceholder {
     position: absolute;
     top: 0;

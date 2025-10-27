@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const notyf = new Notyf();
 
   // ======================================================
-  // 🧩 Seed default admin if not exists in localStorage
+  //  Seed default admin if not exists in localStorage
   // ======================================================
   (function seedAdmin() {
     const STORE_KEY = "courses_admin_store_v1";

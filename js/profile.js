@@ -17,7 +17,7 @@
     localStorage.setItem("loggedInUser", JSON.stringify(user));
     localStorage.setItem("loggedInAdmin", JSON.stringify(user));
 
-    // 🔁 نرسل حدث لتحديث الصورة في الـ navbar
+    // send event to update photo profile in the navbar
     window.dispatchEvent(new CustomEvent("authChange"));
   }
 
@@ -46,7 +46,7 @@
   // ===== Populate Profile Page =====
   function populateProfilePage() {
     const user = getCurrentUser();
-    const avatarPlaceholder = document.getElementById("avatarPlaceholder"); // ⬅️ الأيقونة فى صفحة البروفايل
+    const avatarPlaceholder = document.getElementById("avatarPlaceholder"); // ⬅️ icon on the profile page
     const avatar = document.getElementById("profileAvatar");
     const displayName = document.getElementById("displayName");
     const displayEmail = document.getElementById("displayEmail");
@@ -133,7 +133,7 @@
       reader.readAsDataURL(f);
     });
 
-    // ===== تحديث الصورة يدويًا =====
+    // update photo
     if (avatarUrl) {
       avatarUrl.addEventListener("input", (e) => {
         const v = e.target.value.trim();
@@ -150,7 +150,7 @@
       });
     }
 
-    // ===== حفظ الملف الشخصي =====
+    // save profile user
     profileForm.addEventListener("submit", (ev) => {
       ev.preventDefault();
 
