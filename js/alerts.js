@@ -55,13 +55,13 @@
     close.style.cursor = "pointer";
 
     if (type === "success") {
-      el.style.background = "var(--color-orange)";
+      el.style.background = "#16a34aa9";
       icon.textContent = "✅";
     } else if (type === "error") {
-      el.style.background = "#dc2626";
+      el.style.background = "rgba(175, 38, 38, 0.68)";
       icon.textContent = "❌";
     } else if (type === "warning") {
-      el.style.background = "#f59e0b";
+      el.style.background = "#f97316";
       icon.textContent = "⚠️";
     } else {
       el.style.background = "#374151";

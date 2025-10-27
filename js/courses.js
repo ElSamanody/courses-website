@@ -95,10 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     course.level || ""
                   }</span></div>
                 </div>
-                <div class="instructor"><span class="fw-medium fs-5">By ${
-                  course.instructor || ""
-                }</span></div>
-                <div class="price fw-bold fs-5">${getPriceDisplay(course)}</div>
+                <div class="instructor-price d-flex flex-column flex-md-row gap-3 justify-content-between align-items-start align-items-md-center"> 
+                  <div class="instructor"><span class="fw-medium fs-5">instructor: ${
+                    course.instructor || ""
+                  }</span></div>
+                    <div class="price fw-bold fs-5">${getPriceDisplay(
+                      course
+                    )}</div>
+                </div>
               </div>
             </div>
           </div>
